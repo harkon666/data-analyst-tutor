@@ -6,7 +6,8 @@ import seaborn as sns
 import geopandas as gpd
 import streamlit as st
 import datetime
-from math import radians, sin, cos, sqrt, atan2
+import os
+
 sns.set(style='dark')
 
 def tren_pm25(df):
@@ -243,8 +244,10 @@ def mata_angin(df):
     }).reset_index()
     st.dataframe(clustered_df)
 
+# Mendapatkan path file main_data.csv
+file_path = os.path.join("dashboard", "main_data.csv")
 
-df = pd.read_csv("main_data.csv")
+df = pd.read_csv(file_path)
 min_year = df['year'].min()
 max_year = df['year'].max()
 
