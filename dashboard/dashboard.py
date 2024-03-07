@@ -245,7 +245,11 @@ def mata_angin(df):
     st.dataframe(clustered_df)
 
 # Mendapatkan path file main_data.csv
+
 file_path = os.path.join("dashboard", "main_data.csv")
+
+if (not os.path.exists(file_path)):
+    file_path = 'main_data.csv'
 
 df = pd.read_csv(file_path)
 min_year = df['year'].min()
